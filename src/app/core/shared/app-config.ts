@@ -19,9 +19,11 @@ export const dbConfigProd = {
     storageBucket: "sk-monitor-163609.appspot.com",
     messagingSenderId: "434836734187"
   },
-  fbRefUsers: 'prod/accounts/users',
+  fbRefUsers: "prod/accounts/users",
+  fbRefStsProductivityLogs: "prod/logs/stsOperations"
 }
 
 export const dbConfigDev = {
   fbRefUsers: 'dev/accounts/users',
+  fbRefStsProductivityLogs: "dev/logs/stsOperations"
 }

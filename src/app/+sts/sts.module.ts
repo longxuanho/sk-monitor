@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { SharedModule } from '../shared/shared.module';
 
 import { StsRoutingModule, routedComponents } from './sts-routing.module';
+import { StsMonitorProductivityService } from './shared/sts-monitor-productivity.service';
 
 @NgModule({
   imports: [
@@ -10,6 +11,9 @@ import { StsRoutingModule, routedComponents } from './sts-routing.module';
   ],
   declarations: [
     routedComponents,
+  ],
+  providers: [
+    StsMonitorProductivityService
   ]
 })
 export class StsModule { }

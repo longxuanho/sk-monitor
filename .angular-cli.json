@@ -29,6 +29,7 @@
         "../node_modules/bootstrap/dist/js/bootstrap.min.js",
         "../node_modules/moment/min/moment-with-locales.min.js",
         "../node_modules/latinize/latinize.js",
+        "../src/assets/js/jszip.min.js",
         "../src/assets/js/kendo.all.min.js",
         "../src/assets/js/kendo.messages.vi-VI.js"
       ],

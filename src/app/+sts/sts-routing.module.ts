@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { StsComponent } from "./sts.component";
 import { StsMonitorComponent } from './sts-monitor/sts-monitor.component';
 import { StsErrorsComponent } from './sts-errors/sts-errors.component';
+import { StsMonitorProductivityGridComponent } from './sts-monitor-productivity-grid/sts-monitor-productivity-grid.component';
 
 const routes: Routes = [
   {
@@ -26,5 +27,6 @@ export class StsRoutingModule { }
 export const routedComponents = [
   StsComponent,
   StsMonitorComponent,
-  StsErrorsComponent
+  StsErrorsComponent,
+  StsMonitorProductivityGridComponent
 ]
