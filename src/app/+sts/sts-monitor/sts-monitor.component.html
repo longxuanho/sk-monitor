@@ -1,3 +1,3 @@
-<sk-realtime-toggle-bar></sk-realtime-toggle-bar>
+<sk-realtime-toggle-bar (dateTimeRangeSelected)="handleDateTimeRangeSelected($event)" (realtimeModeToggled)="handleRealtimeModeToggled($event)"></sk-realtime-toggle-bar>
 
-<sk-sts-monitor-productivity-grid></sk-sts-monitor-productivity-grid>
+<sk-sts-monitor-productivity-grid (gridRowSelected)="handleGridRowSelected($event)"></sk-sts-monitor-productivity-grid>

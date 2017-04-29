@@ -1,10 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 import { StsProductivityLog } from '../../shared/models/sts/sts-productivity-log.model';
 import { schema, columns } from '../../shared/models/sts/sts-productivity-grid.model';
 import { timeConfig } from '../../core/shared/app-config';
 import { LoggerService } from '../../core/shared/logger.service';
-import { StsMonitorProductivityService } from '../shared/sts-monitor-productivity.service';
 import { Subscription } from 'rxjs/Subscription';
 
 declare var $: any;
@@ -18,25 +17,21 @@ declare var moment: any;
 })
 export class StsMonitorProductivityGridComponent implements OnInit {
 
+  @Output() gridRowSelected = new EventEmitter();
   gridReady: boolean;
   gridDataSource: any;
-  errorMessage: string = '';
-  logSub: Subscription;
-  logs: StsProductivityLog[];
+
   showResetBtn: boolean;
 
   constructor(
-    private stsOperationLoggerService: StsMonitorProductivityService,
+    
     private loggerService: LoggerService,
   ) { }
 
-  
-
-  resetDatabase() {
-    this.stsOperationLoggerService.resetDatabase();
+  updateDataSource(data: StsProductivityLog[])
+  {
+    this.gridDataSource.data(data);
   }
-
-  
 
   ngOnInit() {
   }
@@ -45,25 +40,10 @@ export class StsMonitorProductivityGridComponent implements OnInit {
     this.initializeGrid();
   }
 
-  ngOnDestroy() {
-    if (this.logSub)
-      this.logSub.unsubscribe();
-  }
-
   initializeGrid() {
     this.gridReady = true;
     this.initDataSource();
     this.presentGrid();
-
-    this.logSub = this.stsOperationLoggerService.getLogs()
-      .subscribe((data: StsProductivityLog[]) => {
-        this.showResetBtn = !!data.length;
-        this.errorMessage = '';
-        this.logs = data;
-        this.gridDataSource.data(data);
-      }, error => {
-        this.errorMessage = `Có lỗi trong quá trình truy vấn dữ liệu: ${error.message}`;
-      });
   }
 
   initDataSource() {
@@ -88,10 +68,12 @@ export class StsMonitorProductivityGridComponent implements OnInit {
       sortable: true,
       columnMenu: true,
       selectable: "row",
-      change: function (e) {
-        var selectedRows = this.select();
-        var dataItem = this.dataItem(selectedRows[0]);
-        console.log('dataItem: ', dataItem);
+      change: (e) => {
+        let grid = $("#grid").data("kendoGrid");
+        var selectedRows = grid.select();
+        var dataItem = grid.dataItem(selectedRows[0]);
+        
+        this.gridRowSelected.emit(dataItem);
       },
       pageable: {
         refresh: false,

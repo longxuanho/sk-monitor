@@ -2,3 +2,7 @@
 @import 'variables';
 @import '../node_modules/bootstrap/scss/bootstrap';
 @import "~@progress/kendo-theme-default/scss/all";
+
+.k-pager-wrap .k-state-selected {
+    border-radius: 50%;
+}
