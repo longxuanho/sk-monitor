@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="d-flex justify-content-between">
+    <div>
+      <sk-datetime-range-select (dateTimeRangeSelected)="handleDateTimeRangeSelected($event)"></sk-datetime-range-select>
+    </div>
+    <div>
+      <label [for]="'realtime-toggle'">Thời gian thực: </label>
+      <kendo-switch id="realtime-toggle" [(ngModel)]="isRealtime" (valueChange)="handleRealtimeModeToggled($event)"></kendo-switch>
+    </div>
+  </div>
+</div>

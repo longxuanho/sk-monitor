@@ -1,0 +1,5 @@
+<ul class="nav nav-tabs justify-content-end" role="tablist" *ngIf="routeList">
+  <li class="nav-item" *ngFor="let route of routeList">
+    <a class="nav-link" data-toggle="tab" href="#nangSuatLamHang" role="tab" [routerLinkActive]="['active']" [routerLink]="route.routeLink">{{route.routeName}}</a>
+  </li>
+</ul>
