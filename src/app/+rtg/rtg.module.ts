@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RtgRoutingModule, routedComponents } from './rtg-routing.module';
 
 import { SharedModule } from '../shared/shared.module';
+import { RtgErrorsGridComponent } from './rtg-errors-grid/rtg-errors-grid.component';
 
 @NgModule({
   imports: [
@@ -9,7 +10,8 @@ import { SharedModule } from '../shared/shared.module';
     RtgRoutingModule
   ],
   declarations: [
-    routedComponents
+    routedComponents,
+    RtgErrorsGridComponent
   ]
 })
 export class RtgModule { }

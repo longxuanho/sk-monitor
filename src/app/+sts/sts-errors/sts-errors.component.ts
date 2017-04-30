@@ -12,4 +12,12 @@ export class StsErrorsComponent implements OnInit {
   ngOnInit() {
   }
 
+  handleDateTimeRangeSelected(event: { start: string, end: string }) {
+
+  }
+
+  handleRealtimeModeToggled(event: boolean) {
+
+  }
+
 }

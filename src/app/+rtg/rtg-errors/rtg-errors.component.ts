@@ -12,4 +12,12 @@ export class RtgErrorsComponent implements OnInit {
   ngOnInit() {
   }
 
+  handleDateTimeRangeSelected(event: { start: string, end: string }) {
+
+  }
+
+  handleRealtimeModeToggled(event: boolean) {
+
+  }
+
 }

@@ -1,3 +1,8 @@
-<sk-realtime-toggle-bar (dateTimeRangeSelected)="handleDateTimeRangeSelected($event)" (realtimeModeToggled)="handleRealtimeModeToggled($event)"></sk-realtime-toggle-bar>
+<div *ngIf="displayMode === 'grid'">
+    <sk-realtime-toggle-bar (dateTimeRangeSelected)="handleDateTimeRangeSelected($event)" (realtimeModeToggled)="handleRealtimeModeToggled($event)"></sk-realtime-toggle-bar>
+    <sk-sts-monitor-productivity-grid  (gridRowSelected)="handleGridRowSelected($event)"></sk-sts-monitor-productivity-grid>
+</div>
 
-<sk-sts-monitor-productivity-grid (gridRowSelected)="handleGridRowSelected($event)"></sk-sts-monitor-productivity-grid>
+<sk-sts-monitor-productivity-viz *ngIf="displayMode === 'viz'"></sk-sts-monitor-productivity-viz>
+
+<sk-sts-monitor-productivity-fabs [mode]="fabMode" (displayModeChanged)="handleDisplayModeChanged($event)"></sk-sts-monitor-productivity-fabs>

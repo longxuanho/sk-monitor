@@ -3,6 +3,9 @@ import { SharedModule } from '../shared/shared.module';
 
 import { StsRoutingModule, routedComponents } from './sts-routing.module';
 import { StsMonitorProductivityService } from './shared/sts-monitor-productivity.service';
+import { StsMonitorProductivityVizGanttComponent } from './sts-monitor-productivity-viz-gantt/sts-monitor-productivity-viz-gantt.component';
+import { StsErrorsGridComponent } from './sts-errors-grid/sts-errors-grid.component';
+
 
 @NgModule({
   imports: [
@@ -11,6 +14,8 @@ import { StsMonitorProductivityService } from './shared/sts-monitor-productivity
   ],
   declarations: [
     routedComponents,
+    StsMonitorProductivityVizGanttComponent,
+    StsErrorsGridComponent,
   ],
   providers: [
     StsMonitorProductivityService

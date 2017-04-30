@@ -1,0 +1,11 @@
+<div class="sk-fab-container" *ngIf="mode === 'viz'">
+  <div class="sk-fab" href="" (click)="changeDisplayMode('viz')"><i class="fa fa-bar-chart" aria-hidden="true"></i></div>
+</div>
+
+<div class="sk-fab-container" *ngIf="mode === 'grid'">
+  <div class="sk-fab" href="" (click)="changeDisplayMode('grid')"><i class="fa fa-table" aria-hidden="true"></i></div>
+</div>
+
+<div class="sk-fab-container" *ngIf="mode === 'rpt'">
+  <div class="sk-fab" href="" (click)="changeDisplayMode('rpt')"><i class="fa fa-newspaper-o" aria-hidden="true"></i></div>
+</div>

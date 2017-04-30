@@ -1,0 +1,26 @@
+{
+  "rules": {
+    ".read": "auth != null",
+    ".write": "auth != null",
+    "dev": {
+      "logs": {
+        "stsOperations": {
+          ".indexOn": [
+            "start",
+            "end"
+          ]
+        }
+      }
+    },
+    "prod": {
+      "logs": {
+        "stsOperations": {
+          ".indexOn": [
+            "start",
+            "end"
+          ]
+        }
+      }
+    }
+  }
+}

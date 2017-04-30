@@ -61,6 +61,7 @@ export class DatetimeRangeSelectComponent implements OnInit, AfterViewInit {
         }
       },
       format: this.dateTimeDisplayFormat,
+      timeFormat: "HH:mm",
       parseFormats: [this.dateTimeDisplayFormat]
     }).data("kendoDateTimePicker");
 
@@ -83,6 +84,7 @@ export class DatetimeRangeSelectComponent implements OnInit, AfterViewInit {
         }
       },
       format: this.dateTimeDisplayFormat,
+      timeFormat: "HH:mm",
       parseFormats: [this.dateTimeDisplayFormat]
     }).data("kendoDateTimePicker");
 

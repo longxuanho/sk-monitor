@@ -18,6 +18,8 @@ export class StsMonitorComponent implements OnInit, OnDestroy {
   logSub: Subscription;
   logs: StsProductivityLog[];
   errorMessage: string = '';
+  fabMode: string = '';
+  displayMode: string = 'grid';
 
 
   constructor(
@@ -39,16 +41,31 @@ export class StsMonitorComponent implements OnInit, OnDestroy {
     this.isRealtime = event;
     this.unsubscribeRealtimeLogs();
 
-    if (!this.isRealtime)
+    if (!this.isRealtime) {
       this.grid.updateDataSource([]);
+      this.fabMode = 'viz';
+    }
     else {
       this.subscribeRealtimeLogs();
+      this.fabMode = '';
     }
   }
 
   handleGridRowSelected(event: StsProductivityLog) {
     let itemSeleted = this.logs.find((item) => item.asset === event.asset && item.contNum === event.contNum && item.start === item.start && item.end === item.end);
     console.log('Log đã chọn: ', itemSeleted);
+  }
+
+  handleDisplayModeChanged(event: string) {
+    if (!event)
+      return;
+    
+    if (event === 'viz')
+      this.fabMode = 'grid';
+    if (event === 'grid')
+      this.fabMode = (this.isRealtime) ? '' : 'viz';
+
+    this.displayMode = event;
   }
 
   unsubscribeRealtimeLogs() {
